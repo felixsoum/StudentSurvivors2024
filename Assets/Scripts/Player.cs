@@ -19,7 +19,15 @@ public class Player : MonoBehaviour
         if (currentScytheTimer <= 0)
         {
             //Spawn le scythe
-            Instantiate(scythePrefab, transform.position, Quaternion.identity);
+            for (int i = 0; i < 3; i++)
+            {
+                Quaternion rot = Quaternion.Euler(0, 0, Random.Range(0, 360f));
+
+                //Instantiate(scythePrefab, transform.position, rot);
+                GameObject scythe = ObjectPool.GetInstance().GetPooledObject();
+                scythe.transform.SetPositionAndRotation(transform.position, rot);
+                scythe.SetActive(true);
+            }
             currentScytheTimer += scytheTimer;
         }
     }
