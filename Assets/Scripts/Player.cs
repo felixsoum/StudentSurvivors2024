@@ -3,35 +3,25 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float movespeed;
-    [SerializeField] GameObject scythePrefab;
-    [SerializeField] float scytheTimer = 2;
-    float currentScytheTimer;
+    [SerializeField] BaseWeapon[] weapons;
     Rigidbody2D rb;
     Animator animator;
+
+    private static Player instance;
+    private int exp;
+
+    public static Player GetInstance() => instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-        currentScytheTimer -= Time.deltaTime;
-        if (currentScytheTimer <= 0)
-        {
-            //Spawn le scythe
-            for (int i = 0; i < 3; i++)
-            {
-                Quaternion rot = Quaternion.Euler(0, 0, Random.Range(0, 360f));
-
-                //Instantiate(scythePrefab, transform.position, rot);
-                GameObject scythe = ObjectPool.GetInstance().GetPooledObject();
-                scythe.transform.SetPositionAndRotation(transform.position, rot);
-                scythe.SetActive(true);
-            }
-            currentScytheTimer += scytheTimer;
-        }
+        weapons[0].LevelUp();
     }
 
     void FixedUpdate()
@@ -43,29 +33,18 @@ public class Player : MonoBehaviour
 
         if (x != 0)
         {
-            int a;
-            if (x > 0)
-            {
-                a = 1;
-            }
-            else
-            {
-                a = -1;
-            }
-            transform.localScale = new Vector3(a, 1, 1);
-
-            int b = x > 0 ? 1 : -1;
-            transform.localScale = new Vector3(b, 1, 1);
-
             transform.localScale = new Vector3(x > 0 ? 1 : -1, 1, 1);
         }
     }
 
-
-    public int Foo()
+    internal void AddExp()
     {
-        return 5;
+        exp++;
+        if (exp % 5 == 0)
+        {
+            // 50% chance level up weapon index 0
+            // et 50% chance index 1
+            weapons[UnityEngine.Random.value < 0.5f ? 0 : 1].LevelUp();
+        }
     }
-
-    public int Foo2() => 5;
 }

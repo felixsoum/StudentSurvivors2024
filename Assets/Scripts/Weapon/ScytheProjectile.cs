@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Scythe : MonoBehaviour, IPoolable
+public class ScytheProjectile : MonoBehaviour, IPoolable
 {
     float lifetime = 2f;
 
