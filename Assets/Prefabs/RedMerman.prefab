@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5289982149929196397}
   - component: {fileID: 7441361034443507530}
   m_Layer: 0
-  m_Name: Merman
+  m_Name: RedMerman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b535221e85b4d4d8a84ab442747177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0.5
 --- !u!50 &5289982149929196397
 Rigidbody2D:
   serializedVersion: 4
@@ -193,7 +194,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 699959823, guid: b392b97171cfeac49b230e3570ec9fca, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

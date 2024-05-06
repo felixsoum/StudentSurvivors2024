@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemyPrefab;
-
     private void Start()
     {
         StartCoroutine(SpawnEnemy());
@@ -17,9 +15,23 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < 10; i++)
             {
-                Instantiate(enemyPrefab, new Vector3(3f, 3f, 0), Quaternion.identity);
+                // new Merman ...
+                // Instantiate(Merman) ...
+                EnemyFactory.GetInstance().CreateWeakEnemy(PickPointAroundPlayer(), Quaternion.identity);
             }
+            EnemyFactory.GetInstance().CreateStrongEnemy(PickPointAroundPlayer(), Quaternion.identity);
             yield return new WaitForSeconds(5);
         }
+    }
+
+    Vector3 PickPointAroundPlayer()
+    {
+        Vector3 resultat = Player.GetInstance().transform.position;
+
+        Vector2 randomPoint = Random.insideUnitCircle.normalized * 3f;
+        resultat.x += randomPoint.x;
+        resultat.y += randomPoint.y;
+
+        return resultat;
     }
 }

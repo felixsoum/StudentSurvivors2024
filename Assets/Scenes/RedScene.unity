@@ -293,7 +293,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.23317978, g: 0.19215688, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -773,8 +773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde6902254a16424dba0cc91af3b943c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weakEnemy: {fileID: 975628205618549270, guid: dbbcb54f6ee479a408190fbe9db1bcf7, type: 3}
-  strongEnemy: {fileID: 975628205618549270, guid: 68d5addbadaeb8d4fa24a378e71d708a, type: 3}
+  weakEnemy: {fileID: 975628205618549270, guid: d026f7c9c18ba7244900c64412535ef9, type: 3}
+  strongEnemy: {fileID: 975628205618549270, guid: 852fd823dd4d1ce459d0320b9abf3606, type: 3}
 --- !u!4 &1220436171
 Transform:
   m_ObjectHideFlags: 0
