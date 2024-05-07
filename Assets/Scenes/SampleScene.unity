@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -349,6 +350,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745dbc625f6eee44fbee430fe509b85d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &547797878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9199526337560500269, guid: 1e9ce7f4bef4ba14dbb68ea74b354b18, type: 3}
@@ -774,7 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 975628205618549270, guid: dbbcb54f6ee479a408190fbe9db1bcf7, type: 3}
-  strongEnemy: {fileID: 975628205618549270, guid: 68d5addbadaeb8d4fa24a378e71d708a, type: 3}
+  strongEnemy: {fileID: 975628205618549270, guid: 6b8c293d1eb483a41a3edff86335c5d6, type: 3}
 --- !u!4 &1220436171
 Transform:
   m_ObjectHideFlags: 0

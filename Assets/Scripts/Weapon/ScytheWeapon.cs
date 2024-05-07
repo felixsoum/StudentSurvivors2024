@@ -1,26 +1,28 @@
+using System.Collections;
 using UnityEngine;
 
 public class ScytheWeapon : BaseWeapon
 {
-    [SerializeField] float scytheTimer = 2;
-    float currentScytheTimer;
-
-    private void Update()
+    private void Start()
     {
-        currentScytheTimer -= Time.deltaTime;
-        if (currentScytheTimer <= 0)
+        StartCoroutine(SpawnScythe());
+    }
+
+    public IEnumerator SpawnScythe()
+    {
+        while (true)
         {
+            yield return new WaitForSeconds(2f);
+
             //Spawn le scythe
             for (int i = 0; i < level; i++)
             {
-                Quaternion rot = Quaternion.Euler(0, 0, Random.Range(0, 360f));
-
-                //Instantiate(scythePrefab, transform.position, rot);
                 GameObject scythe = ObjectPool.GetInstance().GetPooledObject();
-                scythe.transform.SetPositionAndRotation(transform.position, rot);
+                scythe.transform.position = transform.position;
+                scythe.transform.right = Vector3.right * Player.GetInstance().transform.localScale.x;
                 scythe.SetActive(true);
+                yield return new WaitForSeconds(0.2f);
             }
-            currentScytheTimer += scytheTimer;
         }
     }
 }

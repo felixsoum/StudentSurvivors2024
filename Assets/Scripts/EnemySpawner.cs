@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
                 EnemyFactory.GetInstance().CreateWeakEnemy(PickPointAroundPlayer(), Quaternion.identity);
             }
             EnemyFactory.GetInstance().CreateStrongEnemy(PickPointAroundPlayer(), Quaternion.identity);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(15);
         }
     }
 
@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 resultat = Player.GetInstance().transform.position;
 
-        Vector2 randomPoint = Random.insideUnitCircle.normalized * 3f;
+        Vector2 randomPoint = Random.insideUnitCircle.normalized * 6f;
         resultat.x += randomPoint.x;
         resultat.y += randomPoint.y;
 

@@ -44,7 +44,8 @@ public class Player : MonoBehaviour
         {
             // 50% chance level up weapon index 0
             // et 50% chance index 1
-            weapons[UnityEngine.Random.value < 0.5f ? 0 : 1].LevelUp();
+            weapons[0].LevelUp();
+            //weapons[UnityEngine.Random.value < 0.5f ? 0 : 1].LevelUp();
         }
     }
 }

@@ -16,6 +16,14 @@ public class ScytheProjectile : MonoBehaviour, IPoolable
         {
             gameObject.SetActive(false);
         }
-        transform.position += transform.right * 5f * Time.deltaTime;
+        transform.position += 5f * Time.deltaTime * transform.right;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Enemy>(out var enemy))
+        {
+            enemy.Damage(10);
+        }
     }
 }
