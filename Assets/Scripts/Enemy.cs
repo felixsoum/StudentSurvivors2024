@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 0.5f;
+    public SpriteRenderer spriteRenderer;
+
+    [SerializeField] public float moveSpeed = 0.5f;
     [SerializeField] int maxHp = 10;
     Rigidbody2D rb;
     int currentHp;
@@ -21,6 +23,8 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+
+    public virtual void Attack() { }
 
     public virtual void Die()
     {
